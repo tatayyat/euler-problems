@@ -1,12 +1,21 @@
+package com.tatayyat.euler.problems;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class NthPrimeNumber {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What is the nth prime number? n = ");
+        LOGGER.info("What is the nth prime number? n = ");
         int nthPrimeNumber = scanner.nextInt();
         printNthPrimeNumber(nthPrimeNumber);
         printNthPrimeNumberWhile(nthPrimeNumber);
@@ -24,9 +33,9 @@ public class NthPrimeNumber {
                 break;
             }
         }
-        System.out.println("Prime Numbers : " + primeNumbers);
+        LOGGER.info("All Prime Numbers : {} " , primeNumbers);
         if (primeNumbers.size() >= nthPrimeNumber) {
-            System.out.println("Prime Numbers : " + primeNumbers.get(nthPrimeNumber - 1));
+            LOGGER.info("Nth Prime Number : {}" , primeNumbers.get(nthPrimeNumber - 1));
         }
     }
 
@@ -42,9 +51,9 @@ public class NthPrimeNumber {
             }
             numberCnt++;
         }
-        System.out.println("Prime Numbers : " + primeNumbers);
+        LOGGER.info("All Prime Numbers : {}" , primeNumbers);
         if (primeNumbers.size() >= nthPrimeNumber) {
-            System.out.println("Prime Numbers : " + primeNumbers.get(nthPrimeNumber - 1));
+            LOGGER.info("Nth Prime Number : {}" , primeNumbers.get(nthPrimeNumber - 1));
         }
     }
 }

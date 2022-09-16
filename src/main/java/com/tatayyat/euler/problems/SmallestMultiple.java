@@ -1,10 +1,24 @@
+package com.tatayyat.euler.problems;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
+import java.util.Scanner;
+
 /***
  * 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
  * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  */
 public class SmallestMultiple {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     public static void main(String[] args) {
-        printSmallestMultiple(20);
+        Scanner scanner = new Scanner(System.in);
+        LOGGER.info("Enter the number to find smallest multiple");
+        var smallestMultipleOf = scanner.nextInt();
+        printSmallestMultiple(smallestMultipleOf);
     }
 
     static void printSmallestMultiple(int numbersToMultiple) {
@@ -13,7 +27,7 @@ public class SmallestMultiple {
         boolean validMultiple = false;
         while (!validMultiple) {
             multipleNumber++;
-            for (var i = 1; i <= numbersToMultiple ; i++) {
+            for (var i = 1; i <= numbersToMultiple; i++) {
                 if (multipleNumber % i == 0) {
                     validMultiple = true;
                 } else {
@@ -25,6 +39,6 @@ public class SmallestMultiple {
                 }
             }
         }
-        System.out.println("Final multiple number : " + finalMultipleNumber);
+        LOGGER.info("Final multiple number : {}", finalMultipleNumber);
     }
 }
