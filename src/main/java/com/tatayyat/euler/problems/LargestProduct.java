@@ -1,3 +1,9 @@
+package com.tatayyat.euler.problems;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
 import java.util.Scanner;
 
 /**
@@ -6,11 +12,14 @@ import java.util.Scanner;
  * adjacency to check 13
  **/
 public class LargestProduct {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What is the LargestProduct number to check?  = ");
+        LOGGER.info("What is the LargestProduct number to check?  = ");
         String s = scanner.next();
-        System.out.println("What is the Adjacency to check ?  = ");
+        LOGGER.info("What is the Adjacency to check ?  = ");
         int adjacentLength = scanner.nextInt();
         long largestProduct = 0;
 
@@ -23,6 +32,6 @@ public class LargestProduct {
                 largestProduct = product;
             }
         }
-        System.out.println(largestProduct);
+        LOGGER.info("Largest Product is {}", largestProduct);
     }
 }

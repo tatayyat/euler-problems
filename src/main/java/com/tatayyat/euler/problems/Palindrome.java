@@ -1,15 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.OptionalInt;
+package com.tatayyat.euler.problems;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
+import java.util.*;
 
 /***
  * Solution for : A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.*
  * Find the largest palindrome made from the product of two 3-digit numbers.
  */
 public class Palindrome {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     public static void main(String[] args) {
-        printLargestPalindrome(1000);
+        Scanner scanner = new Scanner(System.in);
+        LOGGER.info("Enter the Largest Palindrome : Ex: 1000");
+        var largestPalindromeOf = scanner.nextInt();
+        printLargestPalindrome(largestPalindromeOf);
     }
 
     static void printLargestPalindrome(int maxNumber) {
@@ -27,11 +36,11 @@ public class Palindrome {
                 palindromes.add(multipliedVal);
             }
         }
-        System.out.println("Palindromes from 1 to " + maxNumber + "  is :  " + palindromes);
+        LOGGER.info("Palindromes from 1 to {} is {}", maxNumber, palindromes);
         OptionalInt maxPalindrome = palindromes.stream()
                 .mapToInt(Integer::intValue).max();
         if (maxPalindrome.isPresent()) {
-            System.out.println("The largest palindrome made from the given max numbers is  :  " + maxPalindrome.getAsInt());
+            LOGGER.info("The largest palindrome made from the given max numbers is  : {} ", maxPalindrome.getAsInt());
         }
     }
 }
